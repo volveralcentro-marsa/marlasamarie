@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volver al Centro™ — Marla Samarie</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --gold:#C9A84C;--gold-l:#E8D4A0;--gold-d:#8B6914;
+  --rose:#C97489;--rose-l:#F0C4CF;
+  --black:#0A0A0A;--black2:#111;--black3:#1A1A1A;
+  --white:#F5F2ED;--muted:#888;--border:rgba(201,168,76,0.2);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,10,0.85);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--gold);letter-spacing:1px;}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.8px;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--white);}
+.nav-btn{background:var(--gold);color:var(--black);border:none;padding:9px 20px;border-radius:4px;font-size:12px;font-weight:500;cursor:pointer;letter-spacing:0.5px;}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 32px 80px;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 50%,rgba(201,168,76,0.06) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(201,116,137,0.04) 0%,transparent 60%);}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px;}
+.hero-tag::before{content:'';width:24px;height:0.5px;background:var(--gold);}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,8vw,88px);font-weight:300;line-height:1.05;letter-spacing:-1px;margin-bottom:12px;}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero-sub{font-size:15px;color:var(--muted);line-height:1.7;max-width:480px;margin-bottom:40px;}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-gold{background:var(--gold);color:var(--black);border:none;padding:14px 28px;border-radius:4px;font-size:13px;font-weight:500;cursor:pointer;letter-spacing:0.3px;transition:opacity 0.2s;}
+.btn-gold:hover{opacity:0.88;}
+.btn-outline{background:none;color:var(--white);border:0.5px solid rgba(255,255,255,0.2);padding:14px 28px;border-radius:4px;font-size:13px;cursor:pointer;letter-spacing:0.3px;transition:border-color 0.2s;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.hero-detail{position:absolute;right:32px;top:50%;transform:translateY(-50%);text-align:right;display:flex;flex-direction:column;gap:20px;}
+.hero-stat-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--gold);}
+.hero-stat-lbl{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+.divider{height:0.5px;background:var(--border);margin:0 32px;}
+section{padding:80px 32px;}
+.section-tag{font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.section-tag::after{content:'';flex:0 0 24px;height:0.5px;background:var(--gold);}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,52px);font-weight:300;line-height:1.1;margin-bottom:24px;}
+h2 em{font-style:italic;color:var(--gold);}
+.problema-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:32px;}
+.prob-item{background:var(--black3);border:0.5px solid var(--border);border-radius:8px;padding:20px;position:relative;overflow:hidden;}
+.prob-item::before{content:'';position:absolute;top:0;left:0;width:2px;height:100%;background:var(--rose);}
+.prob-text{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.6;}
+.metodo-section{background:var(--black2);}
+.metodo-intro{font-size:15px;color:var(--muted);line-height:1.7;max-width:560px;margin-bottom:48px;}
+.centro-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.centro-card{background:var(--black3);border:0.5px solid var(--border);border-radius:10px;padding:24px;transition:border-color 0.2s;}
+.centro-card:hover{border-color:var(--gold);}
+.centro-letter{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--gold);line-height:1;margin-bottom:8px;}
+.centro-title{font-size:13px;font-weight:500;color:var(--white);margin-bottom:6px;}
+.centro-desc{font-size:12px;color:var(--muted);line-height:1.6;}
+.quien-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+.quien-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:8px;}
+.quien-item{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.5;}
+.quien-item::before{content:'—';color:var(--gold);flex-shrink:0;margin-top:2px;}
+.quien-not{background:var(--black3);border:0.5px solid var(--border);border-radius:10px;padding:24px;}
+.quien-not h4{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+.not-item{font-size:13px;color:rgba(255,255,255,0.5);padding:8px 0;border-bottom:0.5px solid rgba(255,255,255,0.06);line-height:1.5;}
+.not-item:last-child{border-bottom:none;}
+.detalles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:32px;}
+.det-card{background:var(--black3);border:0.5px solid var(--border);border-radius:10px;padding:20px;}
+.det-label{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.det-value{font-size:15px;color:var(--white);font-weight:400;}
+.marla-section{background:var(--black2);}
+.marla-wrap{display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:center;}
+.marla-avatar{width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,var(--black3),var(--black));border:0.5px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:64px;color:var(--gold);font-weight:300;}
+.marla-bio{font-size:15px;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:20px;}
+.marla-creds{display:flex;flex-wrap:wrap;gap:8px;}
+.cred-badge{font-size:11px;color:var(--gold);background:rgba(201,168,76,0.1);border:0.5px solid rgba(201,168,76,0.3);padding:5px 12px;border-radius:20px;}
+.lista-section{text-align:center;}
+.lista-sub{font-size:14px;color:var(--muted);margin-bottom:32px;}
+.lista-form{display:flex;gap:10px;max-width:400px;margin:0 auto;}
+.lista-input{flex:1;background:var(--black3);border:0.5px solid var(--border);border-radius:6px;padding:13px 16px;color:var(--white);font-size:14px;font-family:'DM Sans',sans-serif;outline:none;}
+.lista-input:focus{border-color:var(--gold);}
+.lista-note{font-size:11px;color:var(--muted);margin-top:12px;}
+.portal-section{background:var(--black2);}
+.portal-wrap{background:var(--black3);border:0.5px solid var(--border);border-radius:12px;padding:40px;max-width:420px;margin:0 auto;text-align:center;}
+.portal-icon{width:56px;height:56px;border-radius:50%;border:0.5px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);}
+.portal-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;margin-bottom:6px;}
+.portal-sub{font-size:13px;color:var(--muted);margin-bottom:28px;}
+.portal-field{width:100%;background:rgba(255,255,255,0.04);border:0.5px solid rgba(255,255,255,0.1);border-radius:6px;padding:12px 14px;color:var(--white);font-size:14px;font-family:'DM Sans',sans-serif;margin-bottom:12px;outline:none;text-align:left;}
+.portal-field:focus{border-color:var(--gold);}
+.portal-btn{width:100%;background:var(--gold);color:var(--black);border:none;border-radius:6px;padding:13px;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.portal-error{color:var(--rose);font-size:12px;margin-bottom:12px;display:none;}
+.portal-dash{display:none;padding:24px 0;}
+.p-greet{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;margin-bottom:4px;}
+.p-sub{font-size:13px;color:var(--muted);margin-bottom:24px;}
+.p-prog-lbl{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:6px;}
+.p-prog-bar{height:2px;background:rgba(255,255,255,0.08);border-radius:1px;margin-bottom:24px;}
+.p-prog-fill{height:100%;background:var(--gold);border-radius:1px;width:25%;}
+.p-week-card{background:rgba(201,168,76,0.06);border:0.5px solid var(--border);border-radius:10px;padding:20px;text-align:left;margin-bottom:16px;}
+.p-badge{display:inline-block;font-size:10px;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;}
+.p-week-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;margin-bottom:6px;}
+.p-week-desc{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:16px;}
+.p-week-btn{width:100%;background:var(--gold);color:var(--black);border:none;border-radius:6px;padding:11px;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.p-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.p-stat{background:rgba(255,255,255,0.03);border:0.5px solid rgba(255,255,255,0.08);border-radius:8px;padding:14px;}
+.p-stat-n{font-size:24px;font-weight:400;color:var(--gold);}
+.p-stat-l{font-size:11px;color:var(--muted);margin-top:2px;}
+.p-logout{background:none;border:none;color:var(--muted);font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:16px;width:100%;}
+.bitacora-view{display:none;text-align:left;}
+.b-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;}
+.b-back{background:none;border:none;color:var(--gold);font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.b-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;}
+.b-section{margin-bottom:24px;}
+.b-sec-label{font-size:10px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;padding-bottom:8px;border-bottom:0.5px solid var(--border);}
+.b-q{margin-bottom:16px;}
+.b-q-text{font-size:13px;color:rgba(255,255,255,0.8);margin-bottom:8px;line-height:1.5;}
+.b-opts{display:flex;flex-wrap:wrap;gap:6px;}
+.b-opt{background:rgba(255,255,255,0.04);border:0.5px solid rgba(255,255,255,0.1);border-radius:16px;color:rgba(255,255,255,0.6);font-size:11px;padding:5px 12px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;}
+.b-opt.sel{background:rgba(201,168,76,0.15);border-color:var(--gold);color:var(--gold);}
+.b-opt.rose.sel{background:rgba(201,116,137,0.15);border-color:var(--rose);color:var(--rose);}
+.b-textarea{width:100%;background:rgba(255,255,255,0.03);border:0.5px solid rgba(255,255,255,0.1);border-radius:6px;color:var(--white);font-size:12px;padding:10px 12px;resize:none;height:64px;outline:none;font-family:'DM Sans',sans-serif;line-height:1.5;}
+.b-textarea:focus{border-color:var(--gold);}
+.b-scale{display:flex;gap:4px;margin-top:6px;}
+.b-scale-btn{flex:1;aspect-ratio:1;background:rgba(255,255,255,0.04);border:0.5px solid rgba(255,255,255,0.1);border-radius:4px;color:rgba(255,255,255,0.4);font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.b-scale-btn.sel{background:rgba(201,168,76,0.2);border-color:var(--gold);color:var(--gold);}
+.b-scale-lbl{display:flex;justify-content:space-between;font-size:9px;color:var(--muted);margin-top:4px;}
+.b-submit{width:100%;background:var(--gold);color:var(--black);border:none;border-radius:6px;padding:12px;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:8px;}
+.b-success{display:none;text-align:center;padding:32px 0;}
+.b-success-icon{width:56px;height:56px;border-radius:50%;border:0.5px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;color:var(--gold);}
+.b-success h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;margin-bottom:8px;}
+.b-success p{font-size:13px;color:var(--muted);line-height:1.6;}
+.b-success-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--gold);margin-top:16px;}
+footer{padding:40px 32px;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.foot-logo{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--gold);}
+.foot-note{font-size:11px;color:var(--muted);}
+.toast{position:fixed;bottom:24px;right:24px;background:var(--black3);border:0.5px solid var(--gold);color:var(--white);padding:14px 20px;border-radius:8px;font-size:13px;z-index:200;display:none;}
+@media(max-width:600px){
+  .hero-detail{display:none;}
+  .problema-grid,.centro-grid,.quien-wrap,.detalles-grid,.marla-wrap,.p-stats{grid-template-columns:1fr;}
+  .centro-card:last-child{grid-column:span 1;}
+  .lista-form{flex-direction:column;}
+  nav .nav-links a{display:none;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Volver al Centro™</div>
+  <div class="nav-links">
+    <a href="#metodo">Método</a>
+    <a href="#programa">Programa</a>
+    <a href="#marla">Marla</a>
+    <button class="nav-btn" onclick="document.getElementById('portal').scrollIntoView({behavior:'smooth'})">Portal</button>
+  </div>
+</nav>
+
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-tag">Programa Insignia · Marla Samarie</div>
+  <h1>Volver<br>al <em>Centro</em></h1>
+  <p class="hero-sub">Un programa de educación nutricional conductual para mujeres que saben qué hacer con su alimentación — pero no logran sostenerlo en su vida real.</p>
+  <div class="hero-ctas">
+    <button class="btn-gold" onclick="document.getElementById('lista').scrollIntoView({behavior:'smooth'})">Únete a la lista de espera</button>
+    <button class="btn-outline" onclick="document.getElementById('metodo').scrollIntoView({behavior:'smooth'})">Conoce el método →</button>
+  </div>
+  <div class="hero-detail">
+    <div class="hero-stat"><div class="hero-stat-num">12</div><div class="hero-stat-lbl">semanas</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">RDN</div><div class="hero-stat-lbl">certificada</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">🖤</div><div class="hero-stat-lbl">premium</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="problema">
+  <div class="section-tag">El problema</div>
+  <h2>No es falta de<br>información. Es falta de<br><em>criterio aplicado.</em></h2>
+  <div class="problema-grid">
+    <div class="prob-item"><p class="prob-text">Sobreinformación nutricional que paraliza en lugar de guiar</p></div>
+    <div class="prob-item"><p class="prob-text">Mentalidad de todo o nada que reinicia el proceso cada semana</p></div>
+    <div class="prob-item"><p class="prob-text">Rigidez alimentaria que no funciona en la vida real</p></div>
+    <div class="prob-item"><p class="prob-text">Culpa constante que agota más que la alimentación misma</p></div>
+    <div class="prob-item"><p class="prob-text">Dependencia de reglas externas que nunca se sostienen</p></div>
+    <div class="prob-item"><p class="prob-text">Decisiones reactivas cuando la vida se desordena</p></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="metodo" class="metodo-section">
+  <div class="section-tag">El método</div>
+  <h2>Método <em>C.E.N.T.R.O.</em></h2>
+  <p class="metodo-intro">Un marco metodológico que desarrolla claridad, estabilidad y autonomía en la toma de decisiones alimentarias — dentro de tu vida real, no de una ideal.</p>
+  <div class="centro-grid">
+    <div class="centro-card"><div class="centro-letter">C</div><div class="centro-title">Claridad Decisional</div><div class="centro-desc">Identificas el ruido mental con la comida y aprendes a diferenciar hambre, decisión y contexto.</div></div>
+    <div class="centro-card"><div class="centro-letter">E</div><div class="centro-title">Entorno Real</div><div class="centro-desc">Reconoces cómo tu contexto real influye en tus decisiones y reduces la culpa de semanas imperfectas.</div></div>
+    <div class="centro-card"><div class="centro-letter">N</div><div class="centro-title">Normalización Conductual</div><div class="centro-desc">Sales del patrón todo o nada y sostienes decisiones funcionales sin rigidez ni autoexigencia.</div></div>
+    <div class="centro-card"><div class="centro-letter">T</div><div class="centro-title">Toma de Decisiones</div><div class="centro-desc">Desarrollas autonomía real — decides con intención en lugar de reaccionar automáticamente.</div></div>
+    <div class="centro-card" style="grid-column:span 2;"><div class="centro-letter">R.O</div><div class="centro-title">Regulación y Organización Flexible</div><div class="centro-desc">Integras la capacidad de ajustar estructura sin perder estabilidad. Consistencia sin rigidez. Sin reinicios constantes.</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="programa">
+  <div class="section-tag">Para quién es</div>
+  <h2>Diseñado para<br>mujeres que <em>ya saben</em><br>— pero no sostienen.</h2>
+  <div class="quien-wrap">
+    <ul class="quien-list">
+      <li class="quien-item">Han intentado múltiples enfoques nutricionales sin resultados duraderos</li>
+      <li class="quien-item">Tienen conocimiento pero baja consistencia en la ejecución</li>
+      <li class="quien-item">Se sienten mentalmente saturadas con la comida</li>
+      <li class="quien-item">Buscan estructura flexible, no otra dieta rígida</li>
+      <li class="quien-item">Están dispuestas a trabajar en su relación con la alimentación</li>
+      <li class="quien-item">Se comprometen con un proceso guiado de 12 semanas</li>
+    </ul>
+    <div>
+      <div class="quien-not">
+        <h4>Esto no es para ti si buscas</h4>
+        <div class="not-item">Un plan de dieta o menú estructurado</div>
+        <div class="not-item">Resultados rápidos sin proceso</div>
+        <div class="not-item">Terapia médico-nutricional clínica</div>
+        <div class="not-item">Un curso grabado sin compromiso</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="section-tag">Estructura</div>
+  <h2>Un programa <em>premium</em><br>de principio a fin.</h2>
+  <div class="detalles-grid">
+    <div class="det-card"><div class="det-label">Duración</div><div class="det-value">12 semanas</div></div>
+    <div class="det-card"><div class="det-label">Formato</div><div class="det-value">Híbrido · Cohorte en vivo</div></div>
+    <div class="det-card"><div class="det-label">Sesiones grupales</div><div class="det-value">1 semanal · 60–75 min</div></div>
+    <div class="det-card"><div class="det-label">Sesiones 1:1</div><div class="det-value">2 estratégicas incluidas</div></div>
+    <div class="det-card"><div class="det-label">Plataforma</div><div class="det-value">Zoom + Portal privado</div></div>
+    <div class="det-card"><div class="det-label">Acompañamiento</div><div class="det-value">Grupal + WhatsApp</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="marla" class="marla-section">
+  <div class="section-tag">Tu facilitadora</div>
+  <div class="marla-wrap">
+    <div class="marla-avatar">MS</div>
+    <div>
+      <h2>Marla <em>Samarie</em></h2>
+      <p class="marla-bio">Nutricionista-Dietitian registrada con MBA, creadora del Método C.E.N.T.R.O. y del programa Volver al Centro™. Su enfoque no parte de la prescripción ni de las reglas — parte de desarrollar criterio propio dentro de la vida real.</p>
+      <p class="marla-bio" style="margin-top:-8px;">El tiempo todo calma. Y eso también aplica a la alimentación.</p>
+      <div class="marla-creds">
+        <span class="cred-badge">RDN · Dietitian registrada</span>
+        <span class="cred-badge">LND · Puerto Rico</span>
+        <span class="cred-badge">MBA</span>
+        <span class="cred-badge">@marlasamarie</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="lista" class="lista-section">
+  <div class="section-tag" style="justify-content:center;">Lista de espera</div>
+  <h2>La próxima cohorte<br>se anuncia <em>pronto.</em></h2>
+  <p class="lista-sub">Déjanos tu nombre y correo para ser la primera en saber.</p>
+  <div class="lista-form">
+    <input class="lista-input" id="lista-email" type="email" placeholder="tu@correo.com" />
+    <button class="btn-gold" onclick="joinLista()">Apuntarme</button>
+  </div>
+  <p class="lista-note">Sin spam. Solo cuando haya novedades del programa.</p>
+</section>
+
+<div class="divider"></div>
+
+<section id="portal" class="portal-section">
+  <div class="section-tag" style="justify-content:center;">Participantes</div>
+  <h2 style="text-align:center;">Portal <em>privado</em></h2>
+  <div class="portal-wrap">
+    <div id="portal-login">
+      <div class="portal-icon">VC</div>
+      <div class="portal-title">Acceso exclusivo</div>
+      <div class="portal-sub">Ingresa con el código que recibiste al inscribirte</div>
+      <input class="portal-field" id="p-name" type="text" placeholder="Tu nombre completo" />
+      <input class="portal-field" id="p-code" type="password" placeholder="Código de acceso" />
+      <div class="portal-error" id="p-error">Código incorrecto. Intenta de nuevo.</div>
+      <button class="portal-btn" onclick="portalLogin()">Entrar al programa →</button>
+    </div>
+    <div class="portal-dash" id="portal-dash">
+      <div class="p-greet">Hola, <span id="p-username"></span> 🖤</div>
+      <div class="p-sub">Semana 3 de 12 · Sigue adelante</div>
+      <div class="p-prog-lbl"><span>Progreso</span><span style="color:var(--gold)">25%</span></div>
+      <div class="p-prog-bar"><div class="p-prog-fill"></div></div>
+      <div class="p-week-card">
+        <div class="p-badge">Semana 3 · Disponible</div>
+        <div class="p-week-title">Patrones y contexto real</div>
+        <div class="p-week-desc">Esta semana exploraremos qué factores de tu vida real están influyendo más en tus decisiones alimentarias.</div>
+        <button class="p-week-btn" onclick="showBitacora()">Completar bitácora →</button>
+      </div>
+      <div class="p-stats">
+        <div class="p-stat"><div class="p-stat-n">3</div><div class="p-stat-l">Semanas completadas</div></div>
+        <div class="p-stat"><div class="p-stat-n" style="color:var(--rose)">9</div><div class="p-stat-l">Semanas restantes</div></div>
+      </div>
+      <button class="p-logout" onclick="portalLogout()">Cerrar sesión</button>
+    </div>
+    <div class="bitacora-view" id="portal-bitacora">
+      <div class="b-header">
+        <button class="b-back" onclick="showDash()">← Inicio</button>
+        <div class="b-title">Bitácora · Sem. 3</div>
+      </div>
+      <div id="b-form">
+        <div class="b-section">
+          <div class="b-sec-label">Tu semana en contexto</div>
+          <div class="b-q"><div class="b-q-text">1. ¿Cómo describirías tu carga mental esta semana?</div><div class="b-opts"><button class="b-opt" onclick="selOne(this,'bq1')">Baja</button><button class="b-opt" onclick="selOne(this,'bq1')">Media</button><button class="b-opt" onclick="selOne(this,'bq1')">Alta</button></div></div>
+          <div class="b-q"><div class="b-q-text">2. ¿Qué factores influyeron más en tus decisiones?</div><div class="b-opts"><button class="b-opt" onclick="tog(this)">Cansancio</button><button class="b-opt" onclick="tog(this)">Estrés</button><button class="b-opt" onclick="tog(this)">Falta de tiempo</button><button class="b-opt" onclick="tog(this)">Estado emocional</button><button class="b-opt" onclick="tog(this)">Entorno social</button><button class="b-opt" onclick="tog(this)">Rutina laboral</button></div></div>
+        </div>
+        <div class="b-section">
+          <div class="b-sec-label">Tus decisiones</div>
+          <div class="b-q"><div class="b-q-text">3. Esta semana mis decisiones alimentarias fueron:</div><div class="b-opts"><button class="b-opt" onclick="selOne(this,'bq3')">Reactivas</button><button class="b-opt" onclick="selOne(this,'bq3')">Mixtas</button><button class="b-opt" onclick="selOne(this,'bq3')">Conscientes</button></div></div>
+          <div class="b-q"><div class="b-q-text">4. ¿En qué momentos te resultó más difícil decidir qué comer?</div><textarea class="b-textarea" placeholder="Ej: las noches, fines de semana..."></textarea></div>
+          <div class="b-q"><div class="b-q-text">5. ¿Sentiste momentos de "todo o nada"?</div><div class="b-opts"><button class="b-opt rose" onclick="selOne(this,'bq5')">Sí, frecuentes</button><button class="b-opt rose" onclick="selOne(this,'bq5')">Ocasionales</button><button class="b-opt rose" onclick="selOne(this,'bq5')">Muy pocos</button><button class="b-opt rose" onclick="selOne(this,'bq5')">No</button></div></div>
+        </div>
+        <div class="b-section">
+          <div class="b-sec-label">Regulación y conciencia</div>
+          <div class="b-q"><div class="b-q-text">6. ¿Cómo estuvo tu autoexigencia esta semana?</div><div class="b-opts"><button class="b-opt" onclick="selOne(this,'bq6')">Muy alta</button><button class="b-opt" onclick="selOne(this,'bq6')">Moderada</button><button class="b-opt" onclick="selOne(this,'bq6')">Baja</button><button class="b-opt" onclick="selOne(this,'bq6')">No lo noté</button></div></div>
+          <div class="b-q"><div class="b-q-text">7. ¿Lograste aplicar algún concepto de las sesiones?</div><div class="b-opts"><button class="b-opt" onclick="selOne(this,'bq7')">Sí, claramente</button><button class="b-opt" onclick="selOne(this,'bq7')">Parcialmente</button><button class="b-opt" onclick="selOne(this,'bq7')">No aún</button><button class="b-opt" onclick="selOne(this,'bq7')">No estoy segura</button></div></div>
+        </div>
+        <div class="b-section">
+          <div class="b-sec-label">Volver al Centro</div>
+          <div class="b-q"><div class="b-q-text">8. ¿Qué tan en conflicto te sentiste con la comida? (1–10)</div><div class="b-scale" id="bscale"></div><div class="b-scale-lbl"><span>Sin conflicto</span><span>Mucho conflicto</span></div></div>
+          <div class="b-q"><div class="b-q-text">9. Esta semana, volver a mi centro significó:</div><textarea class="b-textarea" placeholder="Una reflexión breve..."></textarea></div>
+          <div class="b-q"><div class="b-q-text">10. ¿Qué quieres trabajar la próxima semana?</div><textarea class="b-textarea" placeholder="Escribe libremente..."></textarea></div>
+        </div>
+        <button class="b-submit" onclick="submitB()">Enviar bitácora 🖤</button>
+      </div>
+      <div class="b-success" id="b-success">
+        <div class="b-success-icon">✓</div>
+        <h3>Bitácora enviada</h3>
+        <p>Gracias por tomarte este momento contigo.<br>Tu reflexión ha sido registrada.</p>
+        <div class="b-success-quote">El tiempo todo calma.</div>
+        <button class="b-submit" style="margin-top:24px;" onclick="showDash()">← Volver al inicio</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">Volver al Centro™</div>
+  <div class="foot-note">by Marla Samarie · MarSa Group © 2026</div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const CODES={'CENTRO2026':true};
+function portalLogin(){
+  const name=document.getElementById('p-name').value.trim();
+  const code=document.getElementById('p-code').value.trim().toUpperCase();
+  const err=document.getElementById('p-error');
+  if(!name){err.style.display='block';err.textContent='Por favor escribe tu nombre.';return;}
+  if(CODES[code]){err.style.display='none';document.getElementById('p-username').textContent=name.split(' ')[0];document.getElementById('portal-login').style.display='none';document.getElementById('portal-dash').style.display='block';}
+  else{err.style.display='block';err.textContent='Código incorrecto. Intenta de nuevo.';}
+}
+function portalLogout(){document.getElementById('portal-login').style.display='block';document.getElementById('portal-dash').style.display='none';document.getElementById('portal-bitacora').style.display='none';document.getElementById('p-name').value='';document.getElementById('p-code').value='';}
+function showDash(){document.getElementById('portal-dash').style.display='block';document.getElementById('portal-bitacora').style.display='none';}
+function showBitacora(){document.getElementById('portal-dash').style.display='none';document.getElementById('portal-bitacora').style.display='block';document.getElementById('b-form').style.display='block';document.getElementById('b-success').style.display='none';}
+function selOne(btn,g){document.querySelectorAll('[onclick*="\''+g+'\'"]').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');}
+function tog(btn){btn.classList.toggle('sel');}
+function submitB(){document.getElementById('b-form').style.display='none';document.getElementById('b-success').style.display='block';}
+const bscale=document.getElementById('bscale');
+for(let i=1;i<=10;i++){const b=document.createElement('button');b.className='b-scale-btn';b.textContent=i;b.onclick=function(){document.querySelectorAll('.b-scale-btn').forEach(x=>x.classList.remove('sel'));this.classList.add('sel');};bscale.appendChild(b);}
+function joinLista(){const em=document.getElementById('lista-email').value.trim();if(!em||!em.includes('@')){showToast('Por favor ingresa un correo válido.');return;}document.getElementById('lista-email').value='';showToast('¡Listo! Te avisamos cuando abra la próxima cohorte. 🖤');}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',3500);}
+</script>
+</body>
+</html>
